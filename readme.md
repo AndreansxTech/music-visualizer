@@ -12,7 +12,7 @@ This project is a music visualizer application that uses the Web Audio API to cr
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/AndreansxTech/music-visualizer/tree/main
    ```
 2. Navigate to the project directory:
    ```
