@@ -4,39 +4,56 @@ body {
     margin: 0;
     overflow: hidden;
     background-color: #000;
-}
-
-canvas {
+    }
+    
+    canvas {
     display: block;
     width: 100vw;
     height: 100vh;
-}
-
-.visualizer-container {
+    }
+    
+    .visualizer-container {
     position: relative;
     width: 100%;
     height: 100%;
-}
-
-.visualizer {
+    }
+    
+    .visualizer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     mix-blend-mode: screen;
-}
-
-.controls {
-    position: absolute;
+    }
+    
+    .controls {
+    position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
-}
-
-button {
+    gap: 20px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    }
+    
+    input[type="file"] {
+    color: white;
+    cursor: pointer;
+    }
+    
+    input[type="file"]::-webkit-file-upload-button {
+    background: #fff;
+    border: 0;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    
+    button {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -44,8 +61,8 @@ button {
     color: #000;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-button:hover {
+    }
+    
+    button:hover {
     background-color: #ccc;
-}
+    }

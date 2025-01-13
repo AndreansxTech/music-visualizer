@@ -22,13 +22,13 @@ function handleFileInput(file) {
 return new Promise((resolve, reject) => {
 const reader = new FileReader();
 reader.onload = async (event) => {
-try {
-if (!audioContext) {
-setupAudio();
+    try {
+    if (!audioContext) {
+        setupAudio();
 }
 
 if (audioElement) {
-audioElement.pause();
+    audioElement.pause();
 }
 
 audioElement = new Audio();
@@ -36,8 +36,8 @@ audioElement.src = event.target.result;
 source = audioContext.createMediaElementSource(audioElement);
 connectAudio(source);
 resolve(audioElement);
-} catch (error) {
-reject(error);
+    } catch (error) {
+    reject(error);
 }
 };
 reader.onerror = reject;
