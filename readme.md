@@ -1,35 +1,104 @@
 # Music Visualizer
 
-This project is a music visualizer application that uses the Web Audio API to create dynamic visual representations of audio input. 
+An interactive music visualizer that creates dynamic visual representations of audio in real-time.
 
 ## Features
 
-- Real-time audio visualization
-- Customizable visual effects
-- Responsive design
+- 🎨 Three visualization styles:
+  - Normal (vertical bars)
+  - Double-sided (mirror effect)
+  - Circular (radial visualization)
+- 🎵 Multiple audio input methods:
+  - Local file upload
+  - Direct URL import
+  - YouTube audio extraction
+- 🎭 Two color themes:
+  - Purple/Pink
+  - Neon Green
+- ✨ Visual effects:
+  - Gradient colors
+  - Glow effects
+  - Ripple animations
+  - Responsive design
 
 ## Installation
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/AndreansxTech/music-visualizer/tree/main
    ```
 2. Navigate to the project directory:
-   ```
+   ```bash
    cd music-visualizer
    ```
 3. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
+4. Start the server (required for YouTube functionality):
+   ```bash
+   npm run server
+   ```
+5. In a new terminal, start the application:
+   ```bash
+   npm start
+   ```
 
-## Usage
+## Usage Guide
 
-Open `src/index.html` in a web browser to run the application. Ensure that you have audio input available to see the visualizations in action.
+### Playing Music
+1. **Local Files**:
+   - Click "Choose File"
+   - Select an audio file from your computer
+   - Click "Play" to start
+
+2. **URL Import**:
+   - Click "Import URL"
+   - Paste a direct link to an audio file
+   - Click "Import"
+   - Click "Play" to start
+
+3. **YouTube Audio**:
+   - Click "YouTube"
+   - Paste a YouTube video URL
+   - Click "Import"
+   - Click "Play" to start
+
+### Visualization Controls
+- **Style Switch**: Click to cycle through visualization styles:
+  - Normal: Single bars rising from bottom
+  - Double-sided: Mirrored bars from center
+  - Circular: Radial bars around a circle
+
+- **Theme Switch**: Click to toggle between:
+  - Purple/Pink theme
+  - Neon Green theme
+
+### Playback Controls
+- Play/Pause: Toggle audio playback
+- Progress Bar: Click anywhere to jump to that position
+- Time Display: Shows current time and total duration
+
+## Supported Formats
+- Audio: MP3, WAV, OGG
+- URLs: Direct links to audio files
+- YouTube: Any valid YouTube video URL
+
+## Browser Support
+- Chrome (recommended)
+- Firefox
+- Safari
+- Edge
+
+## Troubleshooting
+- If YouTube extraction fails, ensure the server is running (`npm run server`)
+- Allow autoplay in your browser settings for the best experience
+- Enable microphone access if using live input
+- Check browser console for error messages
 
 ## Contributing
 
-Contributions are welcome! Please submit a pull request or open an issue for any suggestions or improvements.
+Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
 
 ## License
 

@@ -24,34 +24,174 @@ text-shadow:
 0 0 20px rgba(168, 85, 247, 0.3),
 0 0 30px rgba(236, 72, 153, 0.3);
 }
+
+@keyframes playingGlow {
+0% { box-shadow: 0 0 5px #9333ea, 0 0 10px #9333ea, 0 0 15px #9333ea; }
+50% { box-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899, 0 0 30px #ec4899; }
+100% { box-shadow: 0 0 5px #9333ea, 0 0 10px #9333ea, 0 0 15px #9333ea; }
+}
+
+.playing-glow {
+animation: playingGlow 2s ease-in-out infinite;
+}
+
+.progress-container {
+width: 300px;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 9999px;
+overflow: hidden;
+position: relative;
+}
+
+.progress-bar {
+height: 4px;
+background: linear-gradient(to right, #9333ea, #ec4899);
+transition: width 0.1s linear;
+}
+
+.time-display {
+font-family: monospace;
+font-size: 0.875rem;
+color: rgba(255, 255, 255, 0.8);
+}
+
+.style-switch {
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.2);
+padding: 0.5rem;
+border-radius: 9999px;
+display: flex;
+gap: 0.5rem;
+margin-right: 1rem;
+}
+
+.theme-switch {
+position: absolute;  /* Changed from fixed */
+top: 2rem;
+right: 2rem;
+z-index: 50;
+background: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+padding: 0.75rem 1.25rem; /* Increased padding */
+border-radius: 9999px;
+transition: all 0.3s ease;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.theme-switch:hover {
+background: rgba(255, 255, 255, 0.1);
+transform: translateY(-2px);
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Neon theme classes */
+.neon-green-glow {
+text-shadow: 
+0 0 10px rgba(74, 222, 128, 0.7),
+0 0 20px rgba(74, 222, 128, 0.5),
+0 0 30px rgba(34, 197, 94, 0.5),
+0 0 40px rgba(34, 197, 94, 0.3);
+}
+
+.neon-theme .playing-glow {
+animation: neonPlayingGlow 2s ease-in-out infinite;
+}
+
+@keyframes neonPlayingGlow {
+0% { box-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e, 0 0 15px #22c55e; }
+50% { box-shadow: 0 0 10px #4ade80, 0 0 20px #4ade80, 0 0 30px #4ade80; }
+100% { box-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e, 0 0 15px #22c55e; }
+}
+
+/* Ripple effect styles */
+.ripple {
+position: relative;
+overflow: hidden;
+}
+
+.ripple-effect {
+position: absolute;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.4);
+transform: scale(0);
+animation: ripple-animation 0.6s linear;
+pointer-events: none;
+}
+
+@keyframes ripple-animation {
+to {
+transform: scale(4);
+opacity: 0;
+}
+}
+
+/* Enhanced glow effects */
+.hover-glow:hover {
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+transform: translateY(-1px);
+}
+
+.active-ripple:active {
+transform: scale(0.98);
+}
+
+/* Update the container to accommodate the theme switch */
+.controls-container {
+width: 100%;
+position: relative;
+padding-top: 1rem;
+}
 </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-purple-900 via-black to-black text-white overflow-hidden">
-<div class="relative z-10">
-<h1 class="text-5xl font-bold text-center py-8 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent title-glow drop-shadow-lg">
-Music Visualizer
+<body class="min-h-screen bg-gradient-to-br from-purple-900 via-black to-black text-white overflow-hidden" id="mainBody">
+<div class="relative min-h-screen flex flex-col items-center">
+<button id="themeSwitch" 
+class="theme-switch px-4 py-2 rounded-lg bg-white/10 hover:bg-white/30 transition-all focus:ring-2 focus:ring-purple-500 ripple hover-glow active-ripple">
+<span class="relative z-10 font-medium">Theme</span> <!-- Added font-medium -->
+</button>
+<h1 class="text-5xl font-bold text-center py-8 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent title-glow drop-shadow-lg mt-4">
+Simple Colorful Music Visualizer
 </h1>
 
-<canvas id="visualizer" class="absolute top-0 left-0 w-full h-full -z-10"></canvas>
+<div class="flex-1 w-full relative">
+<canvas id="visualizer" class="absolute inset-0"></canvas>
+</div>
 
-<div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 p-6 rounded-xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg">
+<div class="fixed bottom-8 flex flex-col gap-4 p-6 rounded-xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg z-10">
+<div class="flex items-center gap-4">
+<div class="style-switch">
+<button id="styleSwitch" 
+class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition-all focus:ring-2 focus:ring-purple-500 ripple hover-glow active-ripple">
+<span class="relative z-10">Style: Normal</span>
+</button>
+</div>
 <label class="relative inline-block">
 <input type="file" id="audioFile" accept="audio/*" 
 class="hidden peer" />
-<span class="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transition-all cursor-pointer inline-block peer-focus:ring-2 peer-focus:ring-purple-500">
+<span class="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transition-all cursor-pointer inline-block peer-focus:ring-2 peer-focus:ring-purple-500 ripple hover-glow active-ripple">
 Choose File
 </span>
 </label>
 <button id="startButton" 
-class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition-all focus:ring-2 focus:ring-purple-500">
-Play/Pause
+class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition-all focus:ring-2 focus:ring-purple-500 relative group ripple hover-glow active-ripple">
+<span class="relative z-10">Play</span>
 </button>
+</div>
+
+<div class="flex items-center gap-2">
+<span id="currentTime" class="time-display">0:00</span>
+<div class="progress-container">
+<div id="progressBar" class="progress-bar" style="width: 0%"></div>
+</div>
+<span id="duration" class="time-display">0:00</span>
+</div>
 </div>
 </div>
 
-<script src="../lib/web-audio-api.js"></script>
-<script src="js/audioHandler.js" type="module"></script>
-<script src="js/visualizer.js" type="module"></script>
-<script src="js/app.js" type="module"></script>
+<script type="module" src="js/audioHandler.js"></script>
+<script type="module" src="js/visualizer.js"></script>
+<script type="module" src="js/app.js"></script>
+<script src="js/ripple.js"></script>
 </body>
 </html>
