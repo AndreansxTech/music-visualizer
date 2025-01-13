@@ -1,6 +1,6 @@
 # Music Visualizer
-
-An interactive music visualizer that creates dynamic visual representations of audio in real-time.
+A little something I made. I will try to make a update sometime
+This is an interactive music visualizer that creates dynamic visual representations of audio in real-time.
 
 ## Features
 
@@ -11,7 +11,7 @@ An interactive music visualizer that creates dynamic visual representations of a
 - 🎵 Multiple audio input methods:
   - Local file upload
   - Direct URL import
-  - YouTube audio extraction
+  - YouTube audio extraction ( currently not working, I will try in next update )
 - 🎭 Two color themes:
   - Purple/Pink
   - Neon Green
@@ -23,6 +23,16 @@ An interactive music visualizer that creates dynamic visual representations of a
 
 ## Installation
 
+### ( Recommended )
+1. Download repository as zip
+2. Exctract files
+3. navigate to src/index.html
+4. Open in web browser 
+5. Chech out how it displays music !
+
+
+
+# Or
 1. Clone the repository:
    ```bash
    git clone https://github.com/AndreansxTech/music-visualizer/tree/main
@@ -44,6 +54,7 @@ An interactive music visualizer that creates dynamic visual representations of a
    npm start
    ```
 
+
 ## Usage Guide
 
 ### Playing Music
@@ -58,11 +69,11 @@ An interactive music visualizer that creates dynamic visual representations of a
    - Click "Import"
    - Click "Play" to start
 
-3. **YouTube Audio**:
+<!---3. **YouTube Audio**:
    - Click "YouTube"
    - Paste a YouTube video URL
    - Click "Import"
-   - Click "Play" to start
+   - Click "Play" to start --->
 
 ### Visualization Controls
 - **Style Switch**: Click to cycle through visualization styles:
@@ -82,7 +93,7 @@ An interactive music visualizer that creates dynamic visual representations of a
 ## Supported Formats
 - Audio: MP3, WAV, OGG
 - URLs: Direct links to audio files
-- YouTube: Any valid YouTube video URL
+- YouTube: Any valid YouTube video URL ( Not for now )
 
 ## Browser Support
 - Chrome (recommended)
@@ -91,7 +102,7 @@ An interactive music visualizer that creates dynamic visual representations of a
 - Edge
 
 ## Troubleshooting
-- If YouTube extraction fails, ensure the server is running (`npm run server`)
+- If YouTube extraction fails, ensure the server is running (`npm run server`) ( I will try to fix it in a update )
 - Allow autoplay in your browser settings for the best experience
 - Enable microphone access if using live input
 - Check browser console for error messages
