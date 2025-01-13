@@ -63,13 +63,13 @@ This is an interactive music visualizer that creates dynamic visual representati
    - Select an audio file from your computer
    - Click "Play" to start
 
-2. **URL Import**:
+<!---2. **URL Import**:
    - Click "Import URL"
    - Paste a direct link to an audio file
    - Click "Import"
    - Click "Play" to start
 
-<!---3. **YouTube Audio**:
+3. **YouTube Audio**:
    - Click "YouTube"
    - Paste a YouTube video URL
    - Click "Import"
